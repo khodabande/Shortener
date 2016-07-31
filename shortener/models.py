@@ -19,7 +19,7 @@ class ShortLink(models.Model):
     title = models.CharField(verbose_name=_('Title'), max_length=200)
     url = models.URLField(unique=True)
     slug = models.CharField(verbose_name=_('Slug'), max_length=SLUG_LENGTH, unique=True,
-                            editable=False, blank=True)
+                            blank=True)
     views_count = models.PositiveIntegerField(verbose_name=_('Views Count'), default=0,
                                               editable=False)
     submit_time = models.DateTimeField(verbose_name=_('Submit Time'), auto_now_add=True)
