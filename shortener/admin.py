@@ -3,7 +3,7 @@ from django.conf import settings
 from shortener.models import ShortLink
 
 def short_link(obj):
-    return u"<a href='%s'>%s</a>" % (obj.short_url, obj.short_url)
+    return "<a href='%s'>%s</a>" % (obj.short_url, obj.short_url)
 
 short_link.short_description = 'Short Link'
 short_link.allow_tags = True
