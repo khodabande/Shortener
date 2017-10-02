@@ -30,7 +30,7 @@ class ShortLink(models.Model):
         return reverse('shortener_redirect_view', args=(self.slug,))
 
     def save(self, *args, **kwargs):
-        if not self.id:
+        if not self.id and not self.slug:
             slug = generate_random_slug()
             while ShortLink.objects.filter(slug=slug).exists():
                 slug = generate_random_slug()
