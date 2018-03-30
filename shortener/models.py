@@ -43,5 +43,5 @@ class ShortLink(models.Model):
     class Meta:
         verbose_name = _("Short Link")
         verbose_name_plural = _("Short Links")
-        ordering = ('submit_time',)
+        ordering = ('-submit_time',)
         get_latest_by = 'submit_time'
