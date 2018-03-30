@@ -17,7 +17,7 @@ def generate_random_slug():
 
 class ShortLink(models.Model):
     title = models.CharField(verbose_name=_('Title'), max_length=200)
-    url = models.URLField(unique=True)
+    url = models.URLField(unique=True, max_length=400)
     slug = models.CharField(verbose_name=_('Slug'), max_length=SLUG_LENGTH, unique=True,
                             blank=True)
     views_count = models.PositiveIntegerField(verbose_name=_('Views Count'), default=0,
