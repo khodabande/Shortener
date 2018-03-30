@@ -7,7 +7,7 @@ from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 SLUG_CHARSET = getattr(settings, 'SHORTENER_SLUG_CHARSET',
-                       string.ascii_lowercase + string.uppercase + string.digits)
+                       string.ascii_lowercase + string.ascii_uppercase + string.digits)
 SLUG_LENGTH = getattr(settings, 'SHORTENER_SLUG_LENGTH', 8)
 
 
@@ -30,7 +30,7 @@ class ShortLink(models.Model):
         return reverse('shortener_redirect_view', args=(self.slug,))
 
     def save(self, *args, **kwargs):
-        if not self.id:
+        if not self.slug:
             slug = generate_random_slug()
             while ShortLink.objects.filter(slug=slug).exists():
                 slug = generate_random_slug()
